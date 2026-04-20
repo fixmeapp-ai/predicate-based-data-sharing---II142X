@@ -60,6 +60,13 @@ def load_data(csv_path: str) -> pd.DataFrame:
     #Load and preprocess the benchmark CSV
     df = pd.read_csv(csv_path)
 
+    # Normalise boolean columns (PostgreSQL COPY outputs 't'/'f')
+    bool_map = {'t': True, 'f': False, 'true': True, 'false': False,
+                True: True, False: False}
+    for col in ('verified', 'predicate_result'):
+        if col in df.columns:
+            df[col] = df[col].map(bool_map).fillna(False).astype(bool)
+
     # Convert latency from nanoseconds to microseconds and milliseconds
     df['latency_us'] = df['latency_ns'] / 1000.0
     df['latency_ms'] = df['latency_ns'] / 1_000_000.0
