@@ -1,5 +1,13 @@
 # Predicate-Based Data Sharing — Research Prototype
 
+This repository is a fork of the thesis prototype by Bilal Ahmad and Arin Faraj, developed as part of their degree project with Fixmeapp.ai as host company.
+
+The project explores predicate-based data sharing for privacy-preserving user data verification in centralized social platforms, using WibsonTree-inspired predicates, OBDD structures, and comparison with zero-knowledge proofs.
+
+Shared and hosted by FIXMEAPP with permission from the original authors.
+
+---
+
 A benchmarking prototype comparing three data verification architectures:
 
 | System | Name | Data Exposure | Mechanism |
